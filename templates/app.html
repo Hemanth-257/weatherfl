@@ -21,17 +21,8 @@
                 <button type="submit" class="btn btn-primary">Search</button>
                 </form>
                 <br>
-                <div class="card bg-dark">
-                <div class="card-body">
-                <h2><span id="location" class="loc">{{location|title}}</span></h2>
-                <h2><span id="temp" class="temp">{{weather_details['temp']}} °C</span></h2>
-                <h2><span id="descr" class="descr">{{weather_details['description']|title}}</span></h2>
-                </div>
-                </div>
             </div>
         </div>
     </div>
-{% include 'weather_styles.html' %}
 </body>
-
 </html>

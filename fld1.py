@@ -1,20 +1,20 @@
-from flask import Flask
+from flask import Flask, request
 from flask import render_template
 import requests
 
-app = Flask(__name__,template_folder="templates")
+app = Flask(__name__,template_folder="templates",static_folder="static")
 
 names = ["Hemanth","Vijay","Tej","Harish"]
 
-@app.route("/")
-def hello_world():
-    return render_template("index.html", names=names)
+@app.route("/", methods=["GET","POST"])
+def weather():
+      if request.method =="GET":
+        return render_template("app.html")
+      elif request.method =="POST":
+        weather_details = get_weather(request.form['loct'])
+        print (weather_details)
+        return render_template("index.html" , weather_details=weather_details , location=request.form['loct'])
 
-@app.route("/<location>")
-def weather(location):
-    weather_details = get_weather(location)
-    print (weather_details)
-    return render_template("index.html" , weather_details=weather_details, location=location)
 
 def get_weather(city):
     url= "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric" + "&appid=46e377ba3b7a64273badab88a86e1900"

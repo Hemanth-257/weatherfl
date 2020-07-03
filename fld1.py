@@ -17,7 +17,7 @@ def weather(location):
     return render_template("index.html" , weather_details=weather_details, location=location)
 
 def get_weather(city):
-    url= "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=46e377ba3b7a64273badab88a86e1900"
+    url= "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric" + "&appid=46e377ba3b7a64273badab88a86e1900"
     json_response = requests.get(url).json()
     weather_description = json_response["weather"] [0] ["description"]
     temp = json_response["main"] ["temp"]

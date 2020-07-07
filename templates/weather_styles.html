@@ -1,4 +1,4 @@
-{% if "sun" in weather_details['description'] and "cloud" in weather_details['description'] %}
+{% if "sun" in result[0] and "cloud" in result[0] %}
 <div class="icon sun-shower">
   <div class="cloud"></div>
   <div class="sun">
@@ -7,7 +7,7 @@
   <div class="rain"></div>
 </div>
 
-{% elif "storm" in weather_details['description'] %}
+{% elif "storm" in result[0] %}
 <div class="icon thunder-storm">
   <div class="cloud"></div>
   <div class="lightning">
@@ -16,13 +16,13 @@
   </div>
 </div>
 
-{% elif "cloud" in weather_details['description'] %}
+{% elif "cloud" in result[0] %}
 <div class="icon cloudy">
   <div class="cloud"></div>
   <div class="cloud"></div>
 </div>
 
-{% elif "haze" in weather_details['description'] or "snow" in weather_details['description'] %}
+{% elif "haze" in result[0] or "snow" in result[0] %}
 <div class="icon flurries">
   <div class="cloud"></div>
   <div class="snow">
@@ -31,14 +31,14 @@
   </div>
 </div>
 
-{% elif "clear" in weather_details['description'] %}
+{% elif "clear" in result[0] %}
 <div class="icon sunny">
   <div class="sun">
     <div class="rays"></div>
   </div>
 </div>
 
-{% elif "rain" in weather_details['description'] or "drizzle" in weather_details['description'] %}
+{% elif "rain" in result[0] or "drizzle" in result[0] %}
 <div class="icon rainy">
   <div class="cloud"></div>
   <div class="rain"></div>
